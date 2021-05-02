@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: KEK
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  run_test:
+     runs-on: ubuntu-latest
+     steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests and linting
+        run: |
+          npm run test
+          npm run lint
